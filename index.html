@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Suzuki Bike Website Landing Page</title>
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"
+        integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w=="
+        crossorigin="anonymous" />
+</head>
+
+<body>
+    <section class="main">
+        <header>
+            <a href="#"><img src="./logo.png" class="logo"></a>
+            <ul class="navigation">
+                <li><a href="#">Top Features</a></li>
+                <li><a href="#">Gallery</a></li>
+                <li><a href="#">Store</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+            <a href="#" class="menu-icon menu-icon-js"><i class="fas fa-bars "></i></a>
+
+        </header>
+        <div class="content">
+            <h2>Ready To <span>Race</span></h2>
+            <a href="#" class="btn">Ride Now</a>
+            <img src="./bikexin.png" class="bike">
+        </div>
+
+        <!-- Slider Content-->
+        <div class="slider">
+            <div class="slides active">
+                <h2><span>Engine</span><br> 599cc</h2>
+                <h2><span>Max Speed </span><br> 260 Km/h</h2>
+            </div>
+            <div class="slides ">
+                <h2><span>Mileage </span><br> 14 Kmpl</h2>
+                <h2><span>0-100 Km/h </span><br> 4 Seconds</h2>
+            </div>
+            <div class="slides ">
+                <h2><span>Whells </span><br> 17-Inch Alloy</h2>
+                <h2><span>Type Type </span><br> Tubeless</h2>
+            </div>
+        </div>
+        <div class="footer">
+            <ul class="sci">
+                <li><a href=""><i class="fab fa-facebook"></i></a></li>
+                <li><a href=""><i class="fab fa-twitter"></i></a></li>
+                <li><a href=""><i class="fab fa-instagram"></i></a></li>
+            </ul>
+            <div class="dots">
+                <span class="dot active"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+            </div>
+        </div>
+
+        <div class="modal modal-js">
+           <div class="modal__menu modal__menu-js">
+               <span class="modal__menu-icon modal__menu-icon-js"><i class="fas fa-times"></i></span>
+            <ul class="modal__menu-navigation">
+                <li><a href="#">Top Features</a></li>
+                <li><a href="#">Gallery</a></li>
+                <li><a href="#">Store</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+           </div>
+        </div>
+    </section>
+    <script>
+        const slides = document.querySelectorAll('.slides');
+        const dots = document.querySelectorAll('.dot');
+
+        function setActive(i) {
+            for (slide of slides)
+                slide.classList.remove('active')
+            slides[i].classList.add('active')
+
+            for (dot of dots)
+                dot.classList.remove('active')
+            dots[i].classList.add('active')
+        }
+
+        for (let j = 0; j < dots.length; j++)(
+            dots[j].addEventListener('click', function () {
+                setActive(j);
+            })
+        )
+    </script>
+
+    <script>
+        var menuBtn = document.querySelector('.menu-icon-js');
+        var modal = document.querySelector('.modal-js');
+        var closeBtn = document.querySelector('.modal__menu-icon-js');
+        var modalMenu = document.querySelector('.modal__menu-js');
+
+
+        menuBtn.onclick = function() {
+            modal.classList.add('open')
+        }
+
+        closeBtn.onclick = function() {
+            modal.classList.remove('open')
+        }
+
+        modal.onclick = function() {
+            modal.classList.remove('open')
+        }
+
+        modalMenu.onclick = function(e){
+            e.stopImmediatePropagation();
+        }
+    </script>
+</body>
+
+</html>
